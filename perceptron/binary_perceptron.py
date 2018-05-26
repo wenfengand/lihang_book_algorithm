@@ -27,13 +27,17 @@ class Perceptron(object):
         return int(wx > 0)
 
     def train(self, features, labels):
+        # generate w matrix
+        # who's shape is [ len(features[0])+1 ]
         self.w = [0.0] * (len(features[0]) + 1)
 
         correct_count = 0
         time = 0
 
         while time < self.max_iteration:
+            # select a data sample
             index = random.randint(0, len(labels) - 1)
+
             x = list(features[index])
             x.append(1.0)
             y = 2 * labels[index] - 1
