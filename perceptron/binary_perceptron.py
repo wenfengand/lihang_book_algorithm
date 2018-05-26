@@ -40,6 +40,10 @@ class Perceptron(object):
 
             x = list(features[index])
             x.append(1.0)
+
+            # The range of labels' value is within {0,1}
+            # After this operation, the range of y's 
+            #  value is within {-1,1}
             y = 2 * labels[index] - 1
             wx = sum([self.w[j] * x[j] for j in xrange(len(self.w))])
 
